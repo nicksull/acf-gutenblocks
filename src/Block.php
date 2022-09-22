@@ -120,6 +120,7 @@ class Block
         $this->enabled = $settings['enabled'] ?? true;
         $this->dir     = $settings['dir'] ?? $directory_path;
         $this->icon    = $settings['icon'] ?? apply_filters('acf_gutenblocks/default_icon', 'admin-generic');
+        $this->mode    = $settings['mode'] ?? $this->mode;
 
         $settings = apply_filters('acf_gutenblocks/block_settings', [
             'title'       => $settings['title'],
@@ -127,6 +128,7 @@ class Block
             'category'    => $settings['category'],
             'icon'        => $this->icon,
             'supports'    => $this->supports,
+            'mode'        => $this->mode,
             'post_types'  => $settings['post_types'] ?? $this->post_types,
         ], $this->name);
 
